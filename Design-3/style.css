@@ -1,0 +1,111 @@
+body {
+    background: #333;
+    /*Removing scrollers*/
+    overflow: hidden;
+    /*A high perspective to give the UL an isometric look*/
+    perspective: 3000;
+    margin: 0;
+    padding: 0;
+  }
+  body .grid {
+    position: absolute;
+    top: 100px;
+    left: 110px;
+    /*Width = (225 + 20 + 20) * 4 = 1060*/
+    width: 1060px;
+    /*3D Transform*/
+    transform: rotateX(60deg) rotateZ(-50deg);
+    /*Preserve 3D style for children*/
+    transform-style: preserve-3d;
+  }
+  body .grid li {
+    height: 380px;
+    width: 225px;
+    float: left;
+    margin: 20px;
+    list-style-type: none;
+    /*Preserve 3D style for children(pseudo elements)*/
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease;
+  }
+  body .grid li.one {
+    background: linear-gradient(45deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), url("https://mir-s3-cdn-cf.behance.net/project_modules/disp/09f22c10079783.560f0e3c2480f.jpg") center no-repeat #fff;
+    background-size: contain;
+  }
+  body .grid li.two {
+    background: linear-gradient(45deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), url("https://mir-s3-cdn-cf.behance.net/project_modules/disp/a288ba10079783.560f0d40c3534.jpg") center no-repeat #fff;
+    background-size: contain;
+  }
+  body .grid li.three {
+    background: linear-gradient(45deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), url("https://mir-s3-cdn-cf.behance.net/project_modules/disp/87745110079783.560df3057a1ee.png") center no-repeat #fff;
+    background-size: contain;
+  }
+  body .grid li.four {
+    background: linear-gradient(45deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), url("https://mir-s3-cdn-cf.behance.net/project_modules/disp/60422810079783.5633b82459353.jpg") center no-repeat #f7f7ef;
+    background-size: contain;
+  }
+  body .grid li:hover {
+    transform: translateZ(20px);
+    cursor: pointer;
+  }
+  body .grid li:hover:before {
+    width: 25px;
+  }
+  body .grid li:hover:after {
+    height: 25px;
+  }
+  body .grid li:before, body .grid li:after {
+    content: "";
+    position: absolute;
+    /*100% height and width*/
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #cecece;
+  }
+  body .grid li:before {
+    transform-origin: left center;
+    transform: rotateY(90deg);
+    /*Reducing the width of the left side for a flat feel*/
+    width: 5px;
+    transition: width 0.3s ease;
+  }
+  body .grid li:after {
+    transform-origin: bottom center;
+    transform: rotateX(90deg);
+    /*Reducing the height*/
+    height: 5px;
+    top: auto;
+    bottom: 0;
+    /*Background fix - start the background from the bottom*/
+    background-position: bottom center;
+    transition: height 0.3s ease;
+  }
+  body .grid li .shadow {
+    position: absolute;
+    top: 30px;
+    bottom: 30px;
+    left: 30px;
+    right: 30px;
+    background-color: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 30px 30px rgba(0, 0, 0, 0.5);
+    transform: translateZ(-50px);
+  }
+  body .copyright {
+    position: fixed;
+    margin: 0;
+    display: block;
+    bottom: 0;
+    text-align: center;
+    background-color: #000;
+    /* height: 30px; */
+    width: 100%;
+  }
+  body .copyright h2 {
+    color: #cecece;
+  }
+  body .copyright h2 a {
+    color: #cecece;
+    text-decoration: none;
+  }
